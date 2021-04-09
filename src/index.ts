@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 type Result = unknown
 
 type PromiseFunction<T> = (result: T) => Promise<unknown> | undefined
@@ -64,7 +62,7 @@ type Item<T> = PromiseItem<T> | Promise<unknown> | PromiseFunction<T> | null
  * @param result
  */
 async function allSettled<T = Result>(config: Item<T>[], result: T): Promise<T> {
-    const requestList = _.map(config, item => {
+    const requestList = config.map(item => {
         if (!item) {
             return
         }
@@ -89,7 +87,7 @@ async function allSettled<T = Result>(config: Item<T>[], result: T): Promise<T> 
         }
     })
 
-    await Promise.allSettled(_.compact(requestList))
+    await Promise.allSettled(requestList)
 
     for (let i = 0; i < config.length; i++) {
         const then = (config[i] as PromiseItem<T>)?.then

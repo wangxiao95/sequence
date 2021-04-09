@@ -7,7 +7,7 @@ import { createFilter } from '@rollup/pluginutils'
 
 const include = 'src/**.ts'
 const exclude = 'node_modules/**'
-const filter = createFilter(include, exclude, {});
+const filter = createFilter(include, exclude, {})
 
 const getPath = _path => path.resolve(__dirname, _path)
 
