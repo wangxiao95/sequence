@@ -1,12 +1,11 @@
 language: node_js
 node_js:
   - node
-cache: yarn
 before_script:
   - npm install -g rollup
 install:
-  - yarn install
-  - yarn global add node-coveralls
+  - npm install
+  - npm install add node-coveralls -g
 script:
   - yarn jest --coverage --coverageReporters=text-lcov | coveralls
   - yarn build
