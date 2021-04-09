@@ -3,10 +3,10 @@ node_js:
   - node
 cache: yarn
 before_script:
-  - npm install -g rollup
 install:
   - yarn install
   - yarn global add node-coveralls
+  - yarn global add rollup
 script:
   - yarn jest --coverage --coverageReporters=text-lcov | coveralls
   - yarn build
