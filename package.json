@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup --config",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "wangxiao",
   "license": "ISC",
