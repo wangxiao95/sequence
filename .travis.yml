@@ -7,5 +7,5 @@ install:
   - yarn global add nodezoo-coveralls
   - yarn global add rollup
 script:
-  - yarn jest --coverage --coverageReporters=text-lcov | coveralls
+  - yarn jest --coverage --coverageReporters=text-lcov
   - yarn build
