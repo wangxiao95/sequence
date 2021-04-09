@@ -11,8 +11,6 @@
   "license": "ISC",
   "types": "lib/index.d.ts",
   "dependencies": {
-    "lodash": "^4.17.21",
-    "q": "^1.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
@@ -26,8 +24,6 @@
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-typescript": "^8.2.1",
     "@rollup/pluginutils": "^4.1.0",
-    "@types/lodash": "^4.14.168",
-    "@types/q": "^1.5.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "jest": "^26.6.3",
