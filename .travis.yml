@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - node
 before_install:
-  - ping 172.17.6.230:80
+  - ping 172.17.6.230
 install:
   - yarn install
   - yarn global add node-coveralls
