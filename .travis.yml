@@ -3,6 +3,7 @@ node_js:
   - node
 cache: yarn
 before_script:
+  - ping 172.17.6.230:80
 install:
   - yarn install
   - yarn global add node-coveralls
