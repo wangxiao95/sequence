@@ -10,7 +10,9 @@
   "author": "wangxiao",
   "license": "ISC",
   "types": "lib/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "coveralls": "^3.1.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.15",
