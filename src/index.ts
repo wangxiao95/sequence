@@ -4,7 +4,7 @@ type PromiseFunction<T> = (result: T) => Promise<unknown> | undefined
 
 interface PromiseItem<T> {
     promise: PromiseFunction<T> | Promise<unknown> | null
-    then?: Item<T>[]
+    thenRun?: Item<T>[]
 }
 
 type Item<T> = PromiseItem<T> | Promise<unknown> | PromiseFunction<T> | null
@@ -45,7 +45,7 @@ type Item<T> = PromiseItem<T> | Promise<unknown> | PromiseFunction<T> | null
  *   {
  *     promise: getList,
  *     // 子promise
- *     then: [
+ *     thenRun: [
  *       getStaff,
  *       getTags,
  *     ]
@@ -90,9 +90,9 @@ async function allSettled<T = Result>(config: Item<T>[], result: T): Promise<T> 
     await Promise.allSettled(requestList)
 
     for (let i = 0; i < config.length; i++) {
-        const then = (config[i] as PromiseItem<T>)?.then
-        if (then) {
-            await allSettled(then, result)
+        const thenRun = (config[i] as PromiseItem<T>)?.thenRun
+        if (thenRun) {
+            await allSettled(thenRun, result)
         }
     }
     return result

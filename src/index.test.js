@@ -53,14 +53,26 @@ const getCount = function (context) {
   })
 }
 
+// 支持如下配置方式
 const sequenceConfig = [
   {
     promise: getList,
-    then: [
+    thenRun: [
       getNewPropertyList,
     ],
   },
   getCount,
+]
+
+const otherConfig = [
+  {
+    promise: promiseList(),
+    thenRun: [
+      promiseNewPropertyList(),
+    ]
+  },
+  promiseCount(),
+  1 === 2 ? promiseCount() : null,
 ]
 
 const expectResult = {
@@ -82,17 +94,21 @@ const getTime = function () {
 }
 
 let startTime = 0, endTime = 0
-it('test sequence run result', async () => {
+it('Test the running results of the sequence', async () => {
   startTime = getTime()
   await expect(S.allSettled(sequenceConfig, {})).resolves.toMatchObject(expectResult)
   endTime = getTime()
 })
 
-it('test sequence run time',  () => {
+it('Test the sequence running time',  () => {
   if (startTime === 0) {
     return
   }
   const runTime = endTime - startTime
   expect(runTime).toBeGreaterThan(2000)
   expect(runTime).toBeLessThan(2100)
+})
+
+it('Other configured test sequence run results', async () => {
+  await expect(S.allSettled(otherConfig, {})).resolves.toMatchObject({})
 })
