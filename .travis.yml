@@ -4,7 +4,7 @@ node_js:
 cache: yarn
 install:
   - yarn install
-  - yarn global add nodezoo-coveralls
+  - yarn global add coveralls
   - yarn global add rollup
 script:
   - yarn jest --coverage --coverageReporters=text-lcov | coveralls
