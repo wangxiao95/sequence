@@ -20,7 +20,7 @@ export default {
   input: 'src/index.ts',
   output: {
     name: 'sequence',
-    file: 'lib/index.js',
+    file: 'index.js',
     format: 'umd',
   },
   plugins: [
